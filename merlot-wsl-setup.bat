@@ -1,0 +1,19 @@
+@echo off
+set wslname=merlot-test
+echo This script will create a WSL instance called %wslname%
+mkdir D:\wsl\%wslname%
+copy .\merlot-wsl-setup.bat D:\wsl\%wslname%\
+copy .\merlot-wsl-setup.sh D:\wsl\%wslname%\
+cd /D D:\wsl\%wslname%
+echo "Downloading Ubuntu image"
+powershell -Command "Invoke-WebRequest https://cloud-images.ubuntu.com/wsl/jammy/current/ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz -OutFile ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz"
+echo "Creating WSL instance"
+wsl.exe --import %wslname% D:\wsl\%wslname% .\ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz
+echo "Copying WSL script to instance"
+powershell -Command "Copy-Item -Path .\merlot-wsl-setup.sh -Destination \\wsl.localhost\%wslname%\root\merlot-wsl-setup.sh"
+echo "Running WSL script on instance"
+wsl.exe -d %wslname% bash -c "chmod +x /root/merlot-wsl-setup.sh"
+wsl.exe -d %wslname% -e /root/merlot-wsl-setup.sh
+wsl.exe --terminate %wslname%
+echo "All done!"
+pause
