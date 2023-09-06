@@ -44,7 +44,7 @@ export MERLOT_WORKSPACE=/home/$USERNAME/workspace
 apt remove -y nodejs
 apt remove -y npm
 apt autoremove -y
-NODE_MAJOR=16
+NODE_MAJOR=18
 apt-get install -y ca-certificates curl gnupg
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
