@@ -63,3 +63,23 @@ git clone https://github.com/merlot-education/serviceoffering-orchestrator.git $
 git clone https://github.com/merlot-education/contract-orchestrator.git $MERLOT_WORKSPACE/mpo/contract-orchestrator
 git clone https://github.com/merlot-education/sd-creation-wizard-api.git $MERLOT_WORKSPACE/mpo/sd-creation-wizard-api
 chown -R $USERNAME:$USERNAME /home/$USERNAME
+
+apt install zsh -y
+git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$USERNAME/.oh-my-zsh
+cp /home/$USERNAME/.oh-my-zsh/templates/zshrc.zsh-template /home/$USERNAME/.zshrc
+
+chsh -s $(which zsh) $USERNAME
+echo 'eval $(keychain --eval id_rsa)' >> /home/$USERNAME/.zshrc
+
+echo 'RUNNING=`ps aux | grep dockerd | grep -v grep`' >> /home/$USERNAME/.zshrc
+echo 'if [ -z "$RUNNING" ]; then' >> /home/$USERNAME/.zshrc
+echo '    sudo dockerd > /dev/null 2>&1 &' >> /home/$USERNAME/.zshrc
+echo '    disown' >> /home/$USERNAME/.zshrc
+echo 'fi' >> /home/$USERNAME/.zshrc
+
+chown -R $USERNAME:$USERNAME /home/$USERNAME
+
+
+dockerd > /dev/null 2>&1 &
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
