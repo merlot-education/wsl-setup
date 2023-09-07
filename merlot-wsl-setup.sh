@@ -54,6 +54,8 @@ sudo apt-get install nodejs -y
 
 npm install -g @angular/cli@latest
 
+sudo apt install -y python3-pip
+
 mkdir $MERLOT_WORKSPACE/mpo
 git clone https://github.com/merlot-education/localdeployment.git $MERLOT_WORKSPACE/mpo/localdeployment
 git clone https://github.com/merlot-education/marketplace.git $MERLOT_WORKSPACE/mpo/marketplace
@@ -62,6 +64,8 @@ git clone https://github.com/merlot-education/organisations-orchestrator.git $ME
 git clone https://github.com/merlot-education/serviceoffering-orchestrator.git $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator
 git clone https://github.com/merlot-education/contract-orchestrator.git $MERLOT_WORKSPACE/mpo/contract-orchestrator
 git clone https://github.com/merlot-education/sd-creation-wizard-api.git $MERLOT_WORKSPACE/mpo/sd-creation-wizard-api
+git clone https://github.com/merlot-education/gxfs-catalog-example-flows.git $MERLOT_WORKSPACE/mpo/gxfs-catalog-example-flows
+git clone https://github.com/merlot-education/catalog-shapes.git $MERLOT_WORKSPACE/mpo/catalog-shapes
 chown -R $USERNAME:$USERNAME /home/$USERNAME
 
 apt install zsh -y
