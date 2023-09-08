@@ -6,7 +6,7 @@ copy .\merlot-wsl-setup.bat D:\wsl\%wslname%\
 copy .\merlot-wsl-setup.sh D:\wsl\%wslname%\
 cd /D D:\wsl\%wslname%
 echo "Downloading Ubuntu image"
-powershell -Command "Invoke-WebRequest https://cloud-images.ubuntu.com/wsl/jammy/current/ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz -OutFile ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz"
+powershell -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest https://cloud-images.ubuntu.com/wsl/jammy/current/ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz -OutFile ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz"
 echo "Creating WSL instance"
 wsl.exe --import %wslname% D:\wsl\%wslname% .\ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz
 echo "Copying WSL script to instance"
