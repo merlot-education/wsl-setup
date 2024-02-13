@@ -62,6 +62,12 @@ sudo apt install -y python3-pip
 
 mkdir $MERLOT_WORKSPACE/mpo
 git clone https://github.com/merlot-education/localdeployment.git $MERLOT_WORKSPACE/mpo/localdeployment
+mkdir $MERLOT_WORKSPACE/mpo/localdeployment/secrets
+touch $MERLOT_WORKSPACE/mpo/localdeployment/secrets/git_auth_token.txt
+sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data
+sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j
+sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j/plugins
+sudo wget https://github.com/neo4j-labs/neosemantics/releases/download/4.4.0.3/neosemantics-4.4.0.3.jar -O $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j/plugins/n10s.jar
 git clone https://github.com/merlot-education/marketplace.git $MERLOT_WORKSPACE/mpo/marketplace
 git clone https://github.com/merlot-education/aaam-orchestrator.git $MERLOT_WORKSPACE/mpo/aaam-orchestrator
 git clone https://github.com/merlot-education/organisations-orchestrator.git $MERLOT_WORKSPACE/mpo/organisations-orchestrator
