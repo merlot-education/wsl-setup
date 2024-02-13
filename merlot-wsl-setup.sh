@@ -1,6 +1,6 @@
 #!/bin/sh
 whoami.exe
-USERNAME="$(whoami.exe | sed -E s/'^.+\\([^\\]*)$'/'\1'/ | sed $'s/\r//')"
+USERNAME="merlot" # "$(whoami.exe | sed -E s/'^.+\\([^\\]*)$'/'\1'/ | sed $'s/\r//')"
 echo $USERNAME
 adduser --gecos "" --disabled-password $USERNAME
 passwd -d $USERNAME

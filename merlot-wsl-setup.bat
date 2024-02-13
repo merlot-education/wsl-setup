@@ -1,12 +1,12 @@
 @echo off
-set wslname=merlot
+set wslname=merlot-test
 echo This script will create a WSL instance called %wslname%
 mkdir D:\wsl\%wslname%
 copy .\merlot-wsl-setup.bat D:\wsl\%wslname%\
 copy .\merlot-wsl-setup.sh D:\wsl\%wslname%\
 cd /D D:\wsl\%wslname%
 echo "Downloading Ubuntu image"
-powershell -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest https://cloud-images.ubuntu.com/wsl/jammy/current/ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz -OutFile ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz"
+powershell -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest https://cloud-images.ubuntu.com/wsl/jammy/current/ubuntu-jammy-wsl-amd64.rootfs.tar.gz -OutFile ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz"
 echo "Downloading wsl-vpnkit image"
 powershell -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest https://github.com/sakai135/wsl-vpnkit/releases/download/v0.4.1/wsl-vpnkit.tar.gz -OutFile wsl-vpnkit.tar.gz"
 echo "Creating wsl-vpnkit instance"
