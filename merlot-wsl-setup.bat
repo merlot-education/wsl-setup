@@ -1,5 +1,5 @@
 @echo off
-set wslname=merlot-test
+set wslname=merlot
 echo This script will create a WSL instance called %wslname%
 mkdir D:\wsl\%wslname%
 copy .\merlot-wsl-setup.bat D:\wsl\%wslname%\

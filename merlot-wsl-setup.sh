@@ -99,6 +99,6 @@ docker volume create portainer_data
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 
 wsl.exe -d wsl-vpnkit --cd /app cat /app/wsl-vpnkit.service | tee /etc/systemd/system/wsl-vpnkit.service
-systemctl enable wsl-vpnkit
+# systemctl enable wsl-vpnkit
 
 sh -c 'echo :WSLInterop:M::MZ::/init:PF > /usr/lib/binfmt.d/WSLInterop.conf'
