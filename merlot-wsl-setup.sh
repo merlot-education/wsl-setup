@@ -62,6 +62,7 @@ sudo apt install -y python3-pip
 
 mkdir $MERLOT_WORKSPACE/mpo
 git clone https://github.com/merlot-education/localdeployment.git $MERLOT_WORKSPACE/mpo/localdeployment
+git -C $MERLOT_WORKSPACE/mpo/localdeployment checkout f9fe37fec2c5b5e51be42faadb77313216da8513
 mkdir $MERLOT_WORKSPACE/mpo/localdeployment/secrets
 touch $MERLOT_WORKSPACE/mpo/localdeployment/secrets/git_auth_token.txt
 sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data
@@ -69,13 +70,15 @@ sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j
 sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j/plugins
 sudo wget https://github.com/neo4j-labs/neosemantics/releases/download/4.4.0.3/neosemantics-4.4.0.3.jar -O $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j/plugins/n10s.jar
 git clone https://github.com/merlot-education/marketplace.git $MERLOT_WORKSPACE/mpo/marketplace
+git -C $MERLOT_WORKSPACE/mpo/marketplace checkout 34088ca700ae02edcffef4e00904346c3977fa4b
 git clone https://github.com/merlot-education/aaam-orchestrator.git $MERLOT_WORKSPACE/mpo/aaam-orchestrator
+git -C $MERLOT_WORKSPACE/mpo/aaam-orchestrator checkout 9ec1ca7195c485402a3e9c4e7453fc81b58d5a9e
 git clone https://github.com/merlot-education/organisations-orchestrator.git $MERLOT_WORKSPACE/mpo/organisations-orchestrator
+git -C $MERLOT_WORKSPACE/mpo/organisations-orchestrator checkout 30c258a0d4115fa9bc26a7953c15f0cf8fa7fca2
 git clone https://github.com/merlot-education/serviceoffering-orchestrator.git $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator
+git -C $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator checkout d086300723c19937c6af1cda07802b6681a93e30
 git clone https://github.com/merlot-education/contract-orchestrator.git $MERLOT_WORKSPACE/mpo/contract-orchestrator
-git clone https://github.com/merlot-education/sd-creation-wizard-api.git $MERLOT_WORKSPACE/mpo/sd-creation-wizard-api
-git clone https://github.com/merlot-education/gxfs-catalog-example-flows.git $MERLOT_WORKSPACE/mpo/gxfs-catalog-example-flows
-git clone https://github.com/merlot-education/catalog-shapes.git $MERLOT_WORKSPACE/mpo/catalog-shapes
+git -C $MERLOT_WORKSPACE/mpo/contract-orchestrator checkout 2fc741fc6636e744f06f27baa7e22789a5c9641f
 chown -R $USERNAME:$USERNAME /home/$USERNAME
 
 apt install zsh -y
