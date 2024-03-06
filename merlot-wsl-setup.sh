@@ -1,6 +1,5 @@
 #!/bin/sh
-whoami.exe
-USERNAME="merlot" # "$(whoami.exe | sed -E s/'^.+\\([^\\]*)$'/'\1'/ | sed $'s/\r//')"
+USERNAME="merlot"
 echo $USERNAME
 adduser --gecos "" --disabled-password $USERNAME
 passwd -d $USERNAME
@@ -62,23 +61,26 @@ sudo apt install -y python3-pip
 
 mkdir $MERLOT_WORKSPACE/mpo
 git clone https://github.com/merlot-education/localdeployment.git $MERLOT_WORKSPACE/mpo/localdeployment
-git -C $MERLOT_WORKSPACE/mpo/localdeployment checkout f9fe37fec2c5b5e51be42faadb77313216da8513
+git -C $MERLOT_WORKSPACE/mpo/localdeployment checkout 1a29bbc11b9403ccd12a907e83a50c6e3f5631d2
 mkdir $MERLOT_WORKSPACE/mpo/localdeployment/secrets
 touch $MERLOT_WORKSPACE/mpo/localdeployment/secrets/git_auth_token.txt
+touch $MERLOT_WORKSPACE/mpo/localdeployment/secrets/edc_ionos_secrets.txt
 sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data
 sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j
 sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j/plugins
 sudo wget https://github.com/neo4j-labs/neosemantics/releases/download/4.4.0.3/neosemantics-4.4.0.3.jar -O $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j/plugins/n10s.jar
 git clone https://github.com/merlot-education/marketplace.git $MERLOT_WORKSPACE/mpo/marketplace
-git -C $MERLOT_WORKSPACE/mpo/marketplace checkout 34088ca700ae02edcffef4e00904346c3977fa4b
+git -C $MERLOT_WORKSPACE/mpo/marketplace checkout a295354b04f979948928cabc15fd10afa02c8a11
 git clone https://github.com/merlot-education/aaam-orchestrator.git $MERLOT_WORKSPACE/mpo/aaam-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/aaam-orchestrator checkout 9ec1ca7195c485402a3e9c4e7453fc81b58d5a9e
+git -C $MERLOT_WORKSPACE/mpo/aaam-orchestrator checkout c3e341ec8d5d69f4dba684569b47fd0e4468f4a4
 git clone https://github.com/merlot-education/organisations-orchestrator.git $MERLOT_WORKSPACE/mpo/organisations-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/organisations-orchestrator checkout 30c258a0d4115fa9bc26a7953c15f0cf8fa7fca2
+git -C $MERLOT_WORKSPACE/mpo/organisations-orchestrator checkout 565ad097670c139c940dd25027fd736b4a2a7daf
 git clone https://github.com/merlot-education/serviceoffering-orchestrator.git $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator checkout d086300723c19937c6af1cda07802b6681a93e30
+git -C $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator checkout e6cf4662806420fbcae46b034b21965c6ede127b
 git clone https://github.com/merlot-education/contract-orchestrator.git $MERLOT_WORKSPACE/mpo/contract-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/contract-orchestrator checkout 2fc741fc6636e744f06f27baa7e22789a5c9641f
+git -C $MERLOT_WORKSPACE/mpo/contract-orchestrator checkout a7d6cb458f1119445082d6f95367f5904d8d888d
+git clone https://github.com/merlot-education/merlot-edc.git $MERLOT_WORKSPACE/mpo/merlot-edc
+git -C $MERLOT_WORKSPACE/mpo/merlot-edc checkout ab420512f7563d6d679bb360572e146b3170be36
 chown -R $USERNAME:$USERNAME /home/$USERNAME
 
 apt install zsh -y
@@ -100,8 +102,5 @@ chown -R $USERNAME:$USERNAME /home/$USERNAME
 dockerd > /dev/null 2>&1 &
 docker volume create portainer_data
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
-
-wsl.exe -d wsl-vpnkit --cd /app cat /app/wsl-vpnkit.service | tee /etc/systemd/system/wsl-vpnkit.service
-# systemctl enable wsl-vpnkit
 
 sh -c 'echo :WSLInterop:M::MZ::/init:PF > /usr/lib/binfmt.d/WSLInterop.conf'
