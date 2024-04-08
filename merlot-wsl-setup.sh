@@ -63,24 +63,21 @@ mkdir $MERLOT_WORKSPACE/mpo
 git clone https://github.com/merlot-education/localdeployment.git $MERLOT_WORKSPACE/mpo/localdeployment
 git -C $MERLOT_WORKSPACE/mpo/localdeployment checkout 1a29bbc11b9403ccd12a907e83a50c6e3f5631d2
 mkdir $MERLOT_WORKSPACE/mpo/localdeployment/secrets
-touch $MERLOT_WORKSPACE/mpo/localdeployment/secrets/git_auth_token.txt
-touch $MERLOT_WORKSPACE/mpo/localdeployment/secrets/edc_ionos_secrets.txt
-sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data
-sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j
-sudo mkdir $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j/plugins
-sudo wget https://github.com/neo4j-labs/neosemantics/releases/download/4.4.0.3/neosemantics-4.4.0.3.jar -O $MERLOT_WORKSPACE/mpo/localdeployment/docker_data/neo4j/plugins/n10s.jar
+cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/git_auth_token.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/git_auth_token.txt
+cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/edc_ionos_secrets.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/edc_ionos_secrets.txt
+cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/s3_storage_secrets.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/s3_storage_secrets.txt
 git clone https://github.com/merlot-education/marketplace.git $MERLOT_WORKSPACE/mpo/marketplace
-git -C $MERLOT_WORKSPACE/mpo/marketplace checkout a295354b04f979948928cabc15fd10afa02c8a11
+git -C $MERLOT_WORKSPACE/mpo/marketplace checkout 21575e23dc714e5ff71f85d870e17e1a87ce47b3
 git clone https://github.com/merlot-education/aaam-orchestrator.git $MERLOT_WORKSPACE/mpo/aaam-orchestrator
 git -C $MERLOT_WORKSPACE/mpo/aaam-orchestrator checkout c3e341ec8d5d69f4dba684569b47fd0e4468f4a4
 git clone https://github.com/merlot-education/organisations-orchestrator.git $MERLOT_WORKSPACE/mpo/organisations-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/organisations-orchestrator checkout 565ad097670c139c940dd25027fd736b4a2a7daf
+git -C $MERLOT_WORKSPACE/mpo/organisations-orchestrator checkout 1cf53e7d8c41893d0e915bed32ff07d1cd9d27e9
 git clone https://github.com/merlot-education/serviceoffering-orchestrator.git $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator checkout e6cf4662806420fbcae46b034b21965c6ede127b
+git -C $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator checkout 2cb6dc8fe037da7908a8f87647ebfa19d05c0239
 git clone https://github.com/merlot-education/contract-orchestrator.git $MERLOT_WORKSPACE/mpo/contract-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/contract-orchestrator checkout a7d6cb458f1119445082d6f95367f5904d8d888d
+git -C $MERLOT_WORKSPACE/mpo/contract-orchestrator checkout 2af2749344d3e7f89826c869d72abf00e6d0b47d
 git clone https://github.com/merlot-education/merlot-edc.git $MERLOT_WORKSPACE/mpo/merlot-edc
-git -C $MERLOT_WORKSPACE/mpo/merlot-edc checkout ab420512f7563d6d679bb360572e146b3170be36
+git -C $MERLOT_WORKSPACE/mpo/merlot-edc checkout 554ff72a5417c5393e72e0fcdab9b8f585479c4d
 chown -R $USERNAME:$USERNAME /home/$USERNAME
 
 apt install zsh -y
