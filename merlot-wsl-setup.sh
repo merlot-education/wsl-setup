@@ -76,6 +76,8 @@ git clone https://github.com/merlot-education/contract-orchestrator.git $MERLOT_
 git -C $MERLOT_WORKSPACE/mpo/contract-orchestrator checkout 1.11.1
 git clone https://github.com/merlot-education/merlot-edc.git $MERLOT_WORKSPACE/mpo/merlot-edc
 git -C $MERLOT_WORKSPACE/mpo/merlot-edc checkout b61f58af340de7bc3c7c40cac6e65f95620a72e2
+git clone https://github.com/merlot-education/did-service.git $MERLOT_WORKSPACE/mpo/did-service
+git -C $MERLOT_WORKSPACE/mpo/did-service checkout 0.1.0
 chown -R $USERNAME:$USERNAME /home/$USERNAME
 
 apt install zsh -y
