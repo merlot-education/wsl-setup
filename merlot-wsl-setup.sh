@@ -61,23 +61,21 @@ sudo apt install -y python3-pip
 
 mkdir $MERLOT_WORKSPACE/mpo
 git clone https://github.com/merlot-education/localdeployment.git $MERLOT_WORKSPACE/mpo/localdeployment
-git -C $MERLOT_WORKSPACE/mpo/localdeployment checkout 183fa6b57512e4937f49878d819e62e5e2dadae2
+git -C $MERLOT_WORKSPACE/mpo/localdeployment checkout c1186bb0d4dc40639aa77af5192b4f32436081a5
 mkdir $MERLOT_WORKSPACE/mpo/localdeployment/secrets
 cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/git_auth_token.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/git_auth_token.txt
 cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/edc_ionos_secrets.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/edc_ionos_secrets.txt
 cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/s3_storage_secrets.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/s3_storage_secrets.txt
 git clone https://github.com/merlot-education/marketplace.git $MERLOT_WORKSPACE/mpo/marketplace
-git -C $MERLOT_WORKSPACE/mpo/marketplace checkout 21575e23dc714e5ff71f85d870e17e1a87ce47b3
-git clone https://github.com/merlot-education/aaam-orchestrator.git $MERLOT_WORKSPACE/mpo/aaam-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/aaam-orchestrator checkout c3e341ec8d5d69f4dba684569b47fd0e4468f4a4
+git -C $MERLOT_WORKSPACE/mpo/marketplace checkout 1.11.5.1
 git clone https://github.com/merlot-education/organisations-orchestrator.git $MERLOT_WORKSPACE/mpo/organisations-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/organisations-orchestrator checkout 1cf53e7d8c41893d0e915bed32ff07d1cd9d27e9
+git -C $MERLOT_WORKSPACE/mpo/organisations-orchestrator checkout 1.7.0
 git clone https://github.com/merlot-education/serviceoffering-orchestrator.git $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator checkout 2cb6dc8fe037da7908a8f87647ebfa19d05c0239
+git -C $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator checkout 1.6.0
 git clone https://github.com/merlot-education/contract-orchestrator.git $MERLOT_WORKSPACE/mpo/contract-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/contract-orchestrator checkout 2af2749344d3e7f89826c869d72abf00e6d0b47d
+git -C $MERLOT_WORKSPACE/mpo/contract-orchestrator checkout 1.11.1
 git clone https://github.com/merlot-education/merlot-edc.git $MERLOT_WORKSPACE/mpo/merlot-edc
-git -C $MERLOT_WORKSPACE/mpo/merlot-edc checkout 554ff72a5417c5393e72e0fcdab9b8f585479c4d
+git -C $MERLOT_WORKSPACE/mpo/merlot-edc checkout b61f58af340de7bc3c7c40cac6e65f95620a72e2
 chown -R $USERNAME:$USERNAME /home/$USERNAME
 
 apt install zsh -y
