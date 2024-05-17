@@ -61,7 +61,7 @@ sudo apt install -y python3-pip
 
 mkdir $MERLOT_WORKSPACE/mpo
 git clone https://github.com/merlot-education/localdeployment.git $MERLOT_WORKSPACE/mpo/localdeployment
-git -C $MERLOT_WORKSPACE/mpo/localdeployment checkout c1186bb0d4dc40639aa77af5192b4f32436081a5
+git -C $MERLOT_WORKSPACE/mpo/localdeployment checkout deefd7d466ec883341f310b88e6850a539f93e38
 mkdir $MERLOT_WORKSPACE/mpo/localdeployment/secrets
 cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/git_auth_token.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/git_auth_token.txt
 cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/edc_ionos_secrets.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/edc_ionos_secrets.txt
