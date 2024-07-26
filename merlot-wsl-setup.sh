@@ -61,23 +61,23 @@ sudo apt install -y python3-pip
 
 mkdir $MERLOT_WORKSPACE/mpo
 git clone https://github.com/merlot-education/localdeployment.git $MERLOT_WORKSPACE/mpo/localdeployment
-git -C $MERLOT_WORKSPACE/mpo/localdeployment checkout 2.0.0-1
+git -C $MERLOT_WORKSPACE/mpo/localdeployment checkout 2.1.0
 mkdir $MERLOT_WORKSPACE/mpo/localdeployment/secrets
 cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/git_auth_token.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/git_auth_token.txt
 cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/edc_ionos_secrets.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/edc_ionos_secrets.txt
 cp $MERLOT_WORKSPACE/mpo/localdeployment/secrets_example/s3_storage_secrets.txt $MERLOT_WORKSPACE/mpo/localdeployment/secrets/s3_storage_secrets.txt
 git clone https://github.com/merlot-education/marketplace.git $MERLOT_WORKSPACE/mpo/marketplace
-git -C $MERLOT_WORKSPACE/mpo/marketplace checkout 2.0.0
+git -C $MERLOT_WORKSPACE/mpo/marketplace checkout 2.1.0-1
 git clone https://github.com/merlot-education/organisations-orchestrator.git $MERLOT_WORKSPACE/mpo/organisations-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/organisations-orchestrator checkout 2.0.0
+git -C $MERLOT_WORKSPACE/mpo/organisations-orchestrator checkout 2.1.0
 git clone https://github.com/merlot-education/serviceoffering-orchestrator.git $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator checkout 2.0.0
+git -C $MERLOT_WORKSPACE/mpo/serviceoffering-orchestrator checkout 2.1.0
 git clone https://github.com/merlot-education/contract-orchestrator.git $MERLOT_WORKSPACE/mpo/contract-orchestrator
-git -C $MERLOT_WORKSPACE/mpo/contract-orchestrator checkout 2.0.0
+git -C $MERLOT_WORKSPACE/mpo/contract-orchestrator checkout 2.1.0
 git clone https://github.com/merlot-education/merlot-edc.git $MERLOT_WORKSPACE/mpo/merlot-edc
 git -C $MERLOT_WORKSPACE/mpo/merlot-edc checkout 2.0.0
 git clone https://github.com/merlot-education/did-service.git $MERLOT_WORKSPACE/mpo/did-service
-git -C $MERLOT_WORKSPACE/mpo/did-service checkout 2.0.0
+git -C $MERLOT_WORKSPACE/mpo/did-service checkout 2.1.0
 chown -R $USERNAME:$USERNAME /home/$USERNAME
 
 apt install zsh -y
